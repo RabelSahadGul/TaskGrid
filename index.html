@@ -1,0 +1,115 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard - TaskGrid</title>
+<meta
+  name="description"
+  content="TaskGrid Dashboard - Overview of your teams, tasks, and progress"
+/>
+<meta
+  name="keywords"
+  content="dashboard, task overview, team management, progress tracking"
+/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+<link rel="stylesheet" href="static/css/style.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+<script src="static/js/script.js"></script>
+<script>
+  loadpage(
+    "base.html",
+    `
+        <section class="container mx-auto px-4 py-8">
+          <div class="mb-16 animate-in">
+            <div class="text-center mb-12">
+              <h2 class="text-4xl font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition mb-4">
+                Manage Your Projects Effortlessly with TaskGrid
+              </h2>
+              <p class="text-xl text-white max-w-2xl mx-auto">
+                Organize, Track, and Collaborate visually with our intuitive task management platform.
+              </p>
+              <button class="btn-primary mt-6" onclick="location.href='tasks.html'">
+                Start Managing
+              </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div class="card p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-gray-400 text-sm">Total Teams</p>
+                    <h3 class="text-2xl font-bold text-white mt-1">6</h3>
+                  </div>
+                  <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-users text-blue-500 text-xl"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-gray-400 text-sm">Tasks Completed</p>
+                    <h3 class="text-2xl font-bold text-white mt-1">42</h3>
+                  </div>
+                  <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-gray-400 text-sm">Pending Tasks</p>
+                    <h3 class="text-2xl font-bold text-white mt-1">18</h3>
+                  </div>
+                  <div class="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-clock text-yellow-500 text-xl"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-gray-400 text-sm">Active Members</p>
+                    <h3 class="text-2xl font-bold text-white mt-1">24</h3>
+                  </div>
+                  <div class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user-friends text-purple-500 text-xl"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="card p-6 text-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-columns text-yellow-500 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Visual Task Board</h3>
+                <p class="text-gray-400">
+                  Drag and drop tasks across columns to track progress visually with our Kanban-style board.
+                </p>
+              </div>
+              <div class="card p-6 text-center">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-chart-line text-blue-500 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Smart Progress Analytics</h3>
+                <p class="text-gray-400">
+                  Get insights into team performance with detailed charts and progress tracking.
+                </p>
+              </div>
+              <div class="card p-6 text-center">
+                <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-mobile-alt text-white text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Responsive Design</h3>
+                <p class="text-gray-400">
+                  Access your tasks from any device with our fully responsive interface.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        `
+  );
+</script>

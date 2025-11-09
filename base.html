@@ -1,0 +1,120 @@
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskGrid - Smart Team Management</title>
+    <meta
+      name="description"
+      content="TaskGrid helps teams organize, track, and visualize tasks efficiently with a beautiful, responsive interface."
+    />
+    <meta
+      name="keywords"
+      content="task management, team collaboration, project tracking, productivity, team dashboard"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  <body class="min-h-screen flex flex-col bg-blue-500 text-white gradient-bg">
+    <header class="fixed top-0 left-0 w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+      <img src="static/images/logo.png" alt="TaskGrid Logo" class="w-8 h-8 rounded-full" loading="lazy" />
+      <h1 class="text-lg sm:text-xl font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">
+        TaskGrid
+      </h1>
+    </div>
+
+
+    <nav class="hidden md:flex space-x-8 text-yellow-400 font-medium">
+      <a href="index.html" class="font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">Dashboard</a>
+      <a href="teams.html" class="font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">Teams</a>
+      <a href="tasks.html" class="font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">Tasks</a>
+      <a href="analytic.html" class="font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">Analytics</a>
+      <a href="contact.html" class="font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">Contact</a>
+    </nav>
+
+
+    <button id="btn" class="md:hidden text-yellow-400 text-2xl focus:outline-none hover:text-yellow-500 transition">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+
+  <nav id="menu" class="hidden flex flex-col items-center space-y-6 py-6 shadow-lg bg-gray-800 md:hidden">
+      <a href="index.html" class="font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">Dashboard</a>
+      <a href="teams.html" class="font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">Teams</a>
+      <a href="tasks.html" class="font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">Tasks</a>
+      <a href="analytic.html" class="font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">Analytics</a>
+      <a href="contact.html" class="font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition">Contact</a>
+    </nav>
+</header>
+
+    <main
+      id="content"
+      class="flex-grow pt-24 pb-20 px-4 sm:px-6 lg:px-8"
+    ></main>
+   <footer class="bg-gray-900 border-t border-gray-800 py-10">
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0"
+  >
+    <div class="flex items-center space-x-3">
+      <img
+        src="static/images/logo.png"
+        alt="TaskGrid Logo"
+        class="w-8 h-8 rounded-full"
+        loading="lazy"
+      />
+      <h2
+        class="text-lg sm:text-xl font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition"
+      >
+        TaskGrid
+      </h2>
+    </div>
+
+    <div class="flex space-x-6 text-white text-2xl">
+      <a
+        href="https://facebook.com/taskgrid"
+        target="_blank"
+        class="hover:scale-125 transition"
+      >
+        <i class="fab fa-facebook text-blue-500"></i>
+      </a>
+      <a
+        href="https://linkedin.com/taskgrid"
+        target="_blank"
+        class="hover:scale-125 transition"
+      >
+        <i class="fab fa-linkedin text-blue-400"></i>
+      </a>
+      <a
+        href="https://instagram.com/taskgrid"
+        target="_blank"
+        class="hover:scale-125 transition"
+      >
+        <i class="fab fa-instagram text-pink-500"></i>
+      </a>
+      <a
+        href="https://youtube.com/taskgrid"
+        target="_blank"
+        class="hover:scale-125 transition"
+      >
+        <i class="fab fa-youtube text-red-500"></i>
+      </a>
+    </div>
+
+    <div class="text-center md:text-right">
+      <p class="text-gray-400 text-sm">
+        123 Tech Street, Silicon Valley, CA 94025
+      </p>
+      <p class="text-gray-400 text-sm mt-1">
+        © 2025 <span class="font-semibold text-white">TaskGrid</span>. All
+        rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script src="static/js/script.js"></script>
+  </body>
+</html>

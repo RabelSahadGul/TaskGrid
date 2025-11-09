@@ -1,0 +1,86 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact - TaskGrid</title>
+<meta
+  name="description"
+  content="Get in touch with the TaskGrid team for support and inquiries"
+/>
+<meta name="keywords" content="contact, support, help, feedback, inquiry" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+<link rel="stylesheet" href="static/css/style.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+<script src="static/js/script.js"></script>
+<script>
+  loadpage(
+    "base.html",
+    `
+        <section class="container mx-auto px-4 py-8">
+          <section class="animate-in">
+            <h2 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition mb-8">Contact Developer</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div class="card p-6">
+                <h3 class="text-xl font-bold text-white mb-4">Send us a Message</h3>
+                <form id="contactForm">
+                  <div class="mb-4">
+                    <label for="contactName" class="block text-gray-300 mb-2">Full Name</label>
+                    <input type="text" id="contactName" class="form-input bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required />
+                  </div>
+                  <div class="mb-4">
+                    <label for="contactEmail" class="block text-gray-300 mb-2">Email Address</label>
+                    <input type="email" id="contactEmail" class="form-input bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required />
+                  </div>
+                  <div class="mb-4">
+                    <label for="contactSubject" class="block text-gray-300 mb-2">Subject</label>
+                    <input type="text" id="contactSubject" class="form-input bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required />
+                  </div>
+                  <div class="mb-4">
+                    <label for="contactMessage" class="block text-gray-300 mb-2">Message</label>
+                    <textarea id="contactMessage" rows="5" class="form-input bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required></textarea>
+                  </div>
+                  <button type="submit" class="btn-primary w-full">Send Message</button>
+                </form>
+                <div id="contactSuccessMessage" class="mt-4 text-green-400 hidden">
+                  Thank you! Your message has been sent successfully.
+                </div>
+              </div>
+              <div class="card p-6">
+                <h3 class="text-xl font-bold text-white mb-4">Contact Information</h3>
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                      <i class="fas fa-envelope text-white"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-white">Email</h4>
+                      <p class="text-gray-400">support@taskgrid.com</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                      <i class="fas fa-phone text-white"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-white">Phone</h4>
+                      <p class="text-gray-400">+1 (555) 123-4567</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center mr-4">
+                      <i class="fas fa-map-marker-alt text-white"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-white">Address</h4>
+                      <p class="text-gray-400">123 Tech Street, Silicon Valley, CA 94025</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      `
+  );
+</script>

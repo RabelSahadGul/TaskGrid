@@ -1,0 +1,162 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tasks - TaskGrid</title>
+<meta
+  name="description"
+  content="Manage and track your tasks with TaskGrid's visual task board"
+/>
+<meta
+  name="keywords"
+  content="task management, kanban board, task tracking, project task"
+/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+<link rel="stylesheet" href="static/css/style.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+<script src="static/js/script.js"></script>
+<script>
+  loadpage(
+    "base.html",
+    `
+        <main class="container mx-auto px-4 py-8">
+          <section class="mb-16 animate-in">
+            <h2 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition mb-8">Task Board</h2>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+              <div class="flex flex-col md:flex-row gap-4">
+                <select id="teamFilter" class="form-input bg-gray-900 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+                  <option value="all">All Teams</option>
+                  <option value="design">Design Team</option>
+                  <option value="development">Development Team</option>
+                  <option value="marketing">Marketing Team</option>
+                </select>
+                <select id="priorityFilter" class="form-input bg-gray-900 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+                  <option value="all">All Priorities</option>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+              <div class="w-full md:w-auto">
+                <input type="text" id="taskSearch" placeholder="Search tasks..." class="form-input bg-gray-900 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"/>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div class="task-column">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center">
+                  <span class="status-pending mr-2">Pending</span>
+                  <span class="text-gray-400 text-sm">(2 tasks)</span>
+                </h3>
+                <div id="pendingTasks" class="task-list">
+                  <div class="task-item" data-team="design" data-priority="high">
+                    <h4 class="font-bold text-white">Redesign Login Page</h4>
+                    <p class="text-gray-400 text-sm my-2">Update the login interface with new branding guidelines</p>
+                    <div class="flex justify-between items-center mt-3">
+                      <span class="text-xs text-gray-500">Design Team</span>
+                      <span class="text-xs bg-red-500 text-white px-2 py-1 rounded">High</span>
+                    </div>
+                  </div>
+                  <div class="task-item" data-team="development" data-priority="medium">
+                    <h4 class="font-bold text-white">API Integration</h4>
+                    <p class="text-gray-400 text-sm my-2">Connect user authentication with backend services</p>
+                    <div class="flex justify-between items-center mt-3">
+                      <span class="text-xs text-gray-500">Dev Team</span>
+                      <span class="text-xs bg-yellow-500 text-white px-2 py-1 rounded">Medium</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="task-column">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center">
+                  <span class="status-in-progress mr-2">In Progress</span>
+                  <span class="text-gray-400 text-sm">(2 tasks)</span>
+                </h3>
+                <div id="inProgressTasks" class="task-list">
+                  <div class="task-item" data-team="development" data-priority="high">
+                    <h4 class="font-bold text-white">Fix Payment Gateway</h4>
+                    <p class="text-gray-400 text-sm my-2">Resolve issues with credit card processing</p>
+                    <div class="flex justify-between items-center mt-3">
+                      <span class="text-xs text-gray-500">Dev Team</span>
+                      <span class="text-xs bg-red-500 text-white px-2 py-1 rounded">High</span>
+                    </div>
+                  </div>
+                  <div class="task-item" data-team="marketing" data-priority="low">
+                    <h4 class="font-bold text-white">Social Media Campaign</h4>
+                    <p class="text-gray-400 text-sm my-2">Plan Q3 social media strategy</p>
+                    <div class="flex justify-between items-center mt-3">
+                      <span class="text-xs text-gray-500">Marketing</span>
+                      <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">Low</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="task-column">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center">
+                  <span class="status-completed mr-2">Completed</span>
+                  <span class="text-gray-400 text-sm">(2 tasks)</span>
+                </h3>
+                <div id="completedTasks" class="task-list">
+                  <div class="task-item" data-team="design" data-priority="medium">
+                    <h4 class="font-bold text-white">Create App Icons</h4>
+                    <p class="text-gray-400 text-sm my-2">Design app icons for iOS and Android</p>
+                    <div class="flex justify-between items-center mt-3">
+                      <span class="text-xs text-gray-500">Design Team</span>
+                      <span class="text-xs bg-yellow-500 text-white px-2 py-1 rounded">Medium</span>
+                    </div>
+                  </div>
+                  <div class="task-item" data-team="development" data-priority="low">
+                    <h4 class="font-bold text-white">Update Documentation</h4>
+                    <p class="text-gray-400 text-sm my-2">Add new API endpoints to developer docs</p>
+                    <div class="flex justify-between items-center mt-3">
+                      <span class="text-xs text-gray-500">Dev Team</span>
+                      <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">Low</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card p-6 max-w-2xl mx-auto bg-gray-900 rounded-lg">
+              <h3 class="text-xl font-bold text-white mb-4">Add New Task</h3>
+              <form id="addTaskForm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label for="taskTitle" class="block text-gray-300 mb-2">Task Title</label>
+                    <input type="text" id="taskTitle" class="form-input bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required />
+                  </div>
+                  <div>
+                    <label for="taskTeam" class="block text-gray-300 mb-2">Assigned Team</label>
+                    <select id="taskTeam" class="form-input bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
+                      <option value="design">Design Team</option>
+                      <option value="development">Development Team</option>
+                      <option value="marketing">Marketing Team</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label for="taskDescription" class="block text-gray-300 mb-2">Description</label>
+                  <textarea id="taskDescription" rows="3" class="form-input bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required></textarea>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label for="taskDeadline" class="block text-gray-300 mb-2">Deadline</label>
+                    <input type="date" id="taskDeadline" class="form-input bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required />
+                  </div>
+                  <div>
+                    <label for="taskPriority" class="block text-gray-300 mb-2">Priority</label>
+                    <select id="taskPriority" class="form-input bg-gray-800 text-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
+                      <option value="low">Low</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn-primary w-full">Add Task</button>
+              </form>
+              <div id="taskSuccessMessage" class="mt-4 text-green-400 hidden">Task added successfully!</div>
+            </div>
+          </section>
+        </main>
+        `
+  );
+</script>

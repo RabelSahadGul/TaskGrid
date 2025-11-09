@@ -1,0 +1,92 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Teams - TaskGrid</title>
+<meta
+  name="description"
+  content="Manage your teams and team members in TaskGrid"
+/>
+<meta
+  name="keywords"
+  content="team management, team members, collaboration, team organization"
+/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+<link rel="stylesheet" href="static/css/style.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+<script src="static/js/script.js"></script>
+<script>
+  loadpage(
+    "base.html",
+    `
+            <section class="container mx-auto px-4 py-8">
+                <div class="mb-16 animate-in">
+                    <h2 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent hover:from-red-500 hover:to-yellow-400 transition mb-8">Teams Management</h2>
+                    <div id="teamsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="card p-6 bg-gray-800 rounded-lg border border-gray-700">
+                            <h3 class="text-xl font-bold text-white mb-2">Design Team</h3>
+                            <p class="text-gray-400 mb-2">Design Department</p>
+                            <p class="text-gray-400 mb-4">5 members</p>
+                            <button class="btn-primary w-full" onclick="openTeamModal('Design Team', ['Sarah Johnson', 'Michael Chen', 'Emma Wilson', 'David Lee', 'Olivia Martinez'])">
+                                View Members
+                            </button>
+                        </div>
+                        <div class="card p-6 bg-gray-800 rounded-lg border border-gray-700">
+                            <h3 class="text-xl font-bold text-white mb-2">Development Team</h3>
+                            <p class="text-gray-400 mb-2">Engineering Department</p>
+                            <p class="text-gray-400 mb-4">8 members</p>
+                            <button class="btn-primary w-full" onclick="openTeamModal('Development Team', ['Alex Rodriguez', 'Jessica Kim', 'Daniel Brown', 'Sophia Williams', 'James Taylor', 'Mia Anderson', 'Robert Garcia', 'Emily Davis'])">
+                                View Members
+                            </button>
+                        </div>
+                        <div class="card p-6 bg-gray-800 rounded-lg border border-gray-700">
+                            <h3 class="text-xl font-bold text-white mb-2">Marketing Team</h3>
+                            <p class="text-gray-400 mb-2">Marketing Department</p>
+                            <p class="text-gray-400 mb-4">4 members</p>
+                            <button class="btn-primary w-full" onclick="openTeamModal('Marketing Team', ['Jennifer Lopez', 'Christopher Miller', 'Amanda White', 'Kevin Thompson'])">
+                                View Members
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card p-6 max-w-2xl mx-auto bg-gray-800 rounded-lg border border-gray-700">
+                        <h3 class="text-xl font-bold text-white mb-4">Add New Team</h3>
+                        <form id="addTeamForm">
+                            <div class="mb-4">
+                                <label for="teamName" class="block text-gray-300 mb-2">Team Name</label>
+                                <input type="text" id="teamName" class="form-input bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full p-3" required />
+                            </div>
+                            <div class="mb-4">
+                                <label for="department" class="block text-gray-300 mb-2">Department</label>
+                                <input type="text" id="department" class="form-input bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full p-3" required />
+                            </div>
+                            <div class="mb-4">
+                                <label for="members" class="block text-gray-300 mb-2">Members (comma separated)</label>
+                                <input type="text" id="members" class="form-input bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full p-3" placeholder="John Doe, Jane Smith" required />
+                            </div>
+                            <button type="submit" class="btn-primary w-full">
+                                Add Team
+                            </button>
+                        </form>
+                        <div id="teamSuccessMessage" class="mt-4 text-green-400 hidden">
+                            Team added successfully!
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div id="teamModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+                <div class="modal-content bg-gray-800 p-6 rounded-lg max-w-md w-full mx-4 border border-gray-700">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 id="modalTeamName" class="text-xl font-bold text-white">Team Members</h3>
+                        <button id="closeModal" class="text-gray-400 hover:text-white text-xl">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div id="modalTeamMembers" class="space-y-2 max-h-60 overflow-y-auto">
+                    </div>
+                </div>
+            </div>
+            `
+  );
+</script>
